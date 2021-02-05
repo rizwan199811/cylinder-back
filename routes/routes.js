@@ -41,7 +41,7 @@ const graphActions = {
     
 
 };
-router.get('/get-graph' , graphActions.getGraph)
+router.post('/get-graph' , graphActions.getGraph)
 // User
 
 module.exports = router;
