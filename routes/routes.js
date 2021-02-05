@@ -7,8 +7,8 @@ const router = express.Router();
 
 const graphActions = {
     getGraph: asyncMiddleware(async (req, res) => {
+        let { envLocal } =req.body; 
         for (let i = 1; i < 1440; i++) {
-            let { envLocal } =req.body; 
             let envLocalChanged = envLocal[i - 1][data.profile];
             let g = parseFloat(envLocalChanged) * parseFloat(data.dailyUsage) * specificHeatWater * (1 / 3600) * (parseFloat(data.hotWaterDrawOff) - parseFloat(data.coldWaterTemp));
             let j = curve[i - 1] / (specificHeatWater / 3600) / parseFloat(dataRetrieved['storageVolume']) + parseFloat(dataRetrieved['coldWaterTemp']);
